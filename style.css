@@ -1,1 +1,48 @@
-ECHO is on.
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,400;1,500&display=swap');
+
+:root {
+    /* goes from light to dark
+        EG: 050 is the lightest version of blue, ect...
+    */
+    --blue-050:#3498db;
+    --blue-100:#2980b9;
+
+    --red-050:#e74c3c;
+    --red-100:#c0392b;
+
+    --white-050:#ecf0f1;
+    --white-100:#bdc3c7;
+    --white-150:#95a5a6;
+
+    --black-050:#485460;
+    --black-100:#1e272e;
+}
+
+
+/*resets / default styles*/
+
+*, *::before, *::after {
+    padding:0;
+    margin:0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+}
+
+.wish-list-h1 {
+    letter-spacing: 5px;
+    background-color:black;
+    color:white;
+    text-align:center;
+}
+
+.add-item-container {
+    display:flex;
+    justify-content:center;
+}
+
+.add-items__display {
+    display:none;
+}
