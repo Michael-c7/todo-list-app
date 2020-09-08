@@ -27,22 +27,127 @@
 }
 
 html {
+    position: relative;
     font-family: 'Roboto', sans-serif;
-    font-size:18px;
+    font-size:21px;
 }
 
+::placeholder {
+    letter-spacing: 1px;
+}
+
+
+/* start of wish list*/
 .wish-list-h1 {
     letter-spacing: 5px;
     background-color:black;
     color:white;
     text-align:center;
 }
-
-.add-item-container {
+.wish-list__features {
     display:flex;
+    flex-direction:column;
     justify-content:center;
+    align-items: center;
+    padding:0 5rem;
+}
+
+ hr {
+    width:85%;
+    margin:0rem auto;
+    border:1px solid var(--white-150); 
+}
+
+.add-item__shortcut {
+    display:none;
+    border:none;
+    background-color:transparent;
 }
 
 .add-items__display {
-    display:none;
+    /* display:none; */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin:0.5rem 0 0.25rem 0;
+}
+
+.add-item__input {
+    border:2px solid var(--blue-050);
+    border-right:none;
+    padding:0.25rem;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.add-item__button {
+    background-color:transparent;
+    white-space: nowrap;
+    border:none;
+    border:2px solid var(--blue-050);
+    border-left:none;
+    background-color:var(--blue-050);
+    color:#fff;
+    padding:0.25rem;
+    letter-spacing: 1.25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.add-item__button:hover {
+    cursor:pointer;
+}
+.add-item__button:active {
+    background-color:var(--blue-100);
+}
+
+/*search list*/
+.search-list {
+    padding:0.25rem;
+    border:2px solid var(--blue-050);
+    border-radius:25px;
+}
+
+/*list item*/
+.item-container {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    position: relative;
+    width:80%;
+    margin:0 auto;
+    padding:0.5rem 0;
+}
+
+hr:first-of-type {
+    margin-top:0.5rem;
+}
+
+.item-container:hover {
+    background-color:rgba(10, 10, 10, 0.085);
+    padding:0.5rem;
+}
+
+.item-name {
+    letter-spacing: 1px;
+}
+
+.item-delete-btn {
+    border:none;
+    width:2rem;
+    height:2rem;
+    font-size:175%;
+    border-radius:100px;
+    background-color:var(--red-050);
+    color:var(--white-050);
+    box-shadow: 0px 5px 1px var(--red-100);
+    filter:drop-shadow(0px 3px 5px var(--black-100));
+}
+
+.item-delete-btn:hover {
+    cursor:pointer;
+}
+
+.item-delete-btn:active {
+    box-shadow: 0px 0px 1px var(--red-100);
+    filter:drop-shadow(0px 2px 2px var(--black-100));
 }
