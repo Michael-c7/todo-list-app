@@ -107,6 +107,11 @@ html {
     border-radius:25px;
 }
 
+/*items start hr*/
+.items-start-hr {
+    margin-top:1rem;
+}
+
 /*list item*/
 .item-container {
     display:flex;
@@ -118,14 +123,17 @@ html {
     padding:1rem 0;
 }
 
-hr:first-of-type {
+/* hr:first-of-type {
     margin-top:1rem;
-}
+} */
+
+
 
 .item-container:hover {
     background-color:rgba(10, 10, 10, 0.085);
     /* padding:1rem 2.35rem; */
     padding:1rem 0.25rem;
+    border-radius:2px;
 }
 
 .item-name {
@@ -147,6 +155,8 @@ hr:first-of-type {
     color:var(--white-050);
     box-shadow: 0px 5px 1px var(--red-100);
     filter:drop-shadow(0px 3px 5px var(--black-100));
+
+    outline:none;
 }
 
 .item-delete-btn:hover {
@@ -155,7 +165,7 @@ hr:first-of-type {
 
 .item-delete-btn:active {
     box-shadow: 0px 0px 1px var(--red-100);
-    filter:drop-shadow(0px 2px 2px var(--black-100));
+    filter:drop-shadow(0px 2px 3px var(--black-100));
 }
 
 
@@ -164,7 +174,7 @@ hr:first-of-type {
 
 /*Media Queries*/
 
-    /*Laptop Large*/
+    /*Mobile Large*/
     @media(min-width:500px) {
         .add-item__shortcut {
             display:none;
@@ -209,9 +219,4 @@ hr:first-of-type {
             border-radius:25px;
             transform:scale(1.2);
         }
-
-        hr:first-of-type {
-            margin-top:1rem;
-        }
-
 }
