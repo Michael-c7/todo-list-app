@@ -1,11 +1,15 @@
 /*create unique ID */
 function createUniqueID() {
     let lengthOfUniqueID = 10;
+    let uniqueID;
     /*can be any letter upper
     or lower case &
     any number 1-9 */
     let str = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
     for(let i = 0; i < str.length; i++) {
+        // get 10 random characters and put them into a string
+        // from str w/out mutating the string
+        // slice
         // console.log(str[i]);
     }
 
