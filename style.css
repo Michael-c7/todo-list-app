@@ -65,11 +65,11 @@ html {
 }
 
 .add-items__display {
-    /* display:none; */
     display: flex;
     justify-content: center;
     align-items:center;
     margin:0.5rem 0 0.25rem 0;
+    
 }
 
 .add-item__input {
@@ -115,20 +115,26 @@ html {
     position: relative;
     width:80%;
     margin:0 auto;
-    padding:0.5rem 0;
+    padding:1rem 0;
 }
 
 hr:first-of-type {
-    margin-top:0.5rem;
+    margin-top:1rem;
 }
 
 .item-container:hover {
     background-color:rgba(10, 10, 10, 0.085);
-    padding:0.5rem;
+    /* padding:1rem 2.35rem; */
+    padding:1rem 0.25rem;
 }
 
 .item-name {
+    font-size:24px;
     letter-spacing: 1px;
+}
+
+.item-name:hover {
+    font-weight:600;
 }
 
 .item-delete-btn {
@@ -150,4 +156,62 @@ hr:first-of-type {
 .item-delete-btn:active {
     box-shadow: 0px 0px 1px var(--red-100);
     filter:drop-shadow(0px 2px 2px var(--black-100));
+}
+
+
+
+
+
+/*Media Queries*/
+
+    /*Laptop Large*/
+    @media(min-width:500px) {
+        .add-item__shortcut {
+            display:none;
+            border:none;
+            background-color:transparent;
+        }
+        
+        .add-items__display {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            margin:1rem 0 0.75rem 0;
+            transform:scale(1.2);
+        }
+        
+        .add-item__input {
+            border:2px solid var(--blue-050);
+            border-right:none;
+            padding:0.25rem;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+        
+        .add-item__button {
+            background-color:transparent;
+            white-space: nowrap;
+            border:none;
+            border:2px solid var(--blue-050);
+            border-left:none;
+            background-color:var(--blue-050);
+            color:#fff;
+            padding:0.25rem;
+            letter-spacing: 1.25px;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+        
+
+        .search-list {
+            padding:0.25rem;
+            border:2px solid var(--blue-050);
+            border-radius:25px;
+            transform:scale(1.2);
+        }
+
+        hr:first-of-type {
+            margin-top:1rem;
+        }
+
 }
