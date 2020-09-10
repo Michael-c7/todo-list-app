@@ -1,3 +1,9 @@
+/*Global variables */
+let addItemInput = document.querySelector('.add-item__input');
+let addItemButton = document.querySelector('.add-item__button');
+let items = document.querySelector('.items');
+
+
 /*create unique ID */
 function createUniqueID(lengthOfUniqueID = 10) {
     let uniqueID = '';
@@ -11,23 +17,14 @@ function createUniqueID(lengthOfUniqueID = 10) {
     return uniqueID;
 }
 
-// createUniqueID();
 
-/*Add items to wishlist*/
-    /* wishlist input*/
-    let addItemInput = document.querySelector('.add-item__input');
-    addItemInput.addEventListener('keyup', addItemToWishList);
-    
-    
-    /*add button*/
-    let addItemButton = document.querySelector('.add-item__button');
-    // addItemButton.addEventListener('click', addItemToWishList);
-    
 
-function addItemToWishList(uniqueID) {
-    
-    console.log(uniqueID)
-    console.log(arguments)
+
+
+/*add the item to the wish list */
+function addItemToWishList() {
+    // arguments[2] is the uniqueID
+ 
 
     /* wishlist input value*/
     let addItemInputValue = addItemInput.value;
@@ -39,7 +36,7 @@ function addItemToWishList(uniqueID) {
     /*item container */
     let itemContainer = document.createElement('div');
     itemContainer.classList.add('item-container');
-    itemContainer.id = uniqueID;
+    itemContainer.id = arguments[2];
     // add item to itemFragment
     itemFragment.appendChild(itemContainer);
 
@@ -47,7 +44,7 @@ function addItemToWishList(uniqueID) {
     /*item name*/
     let itemName = document.createElement('span');
     itemName.classList.add('item-name');
-    itemName.textContent = `${addItemInputValue}`;
+    itemName.textContent = addItemInputValue;
     // add to itemFragment
     itemContainer.appendChild(itemName);
 
@@ -64,30 +61,59 @@ function addItemToWishList(uniqueID) {
     itemFragment.appendChild(itemContainerHr)
 
 
-    /*append item fragment into the DOM on click */
-    let items = document.querySelector('.items');
-    // items.appendChild(itemFragment)
-    // if()
+/*append item fragment into the DOM on click */
     addItemButton.onclick = function() {
         items.appendChild(itemFragment);
-    }
-    
+    } 
 }
 
-addItemToWishList('xyz');
+
+
+
+
+function deleteItemsFromWishList(event) {
+    if(event.target.closest('button.item-delete-btn')) {
+        let itemContainer = event.target.parentElement;
+        // hr below the item container
+        let itemContainerHr = event.target.parentElement.nextElementSibling;
+
+        itemContainer.remove();
+        itemContainerHr.remove();
+    }
+}
+
+
+
+
+   
+/*Event Listeners */
+    /*add items*/
+    addItemInput.addEventListener('keyup', function(event){
+        addItemToWishList(event, this, createUniqueID());
+    });
+
+    /*Delete items*/
+    items.addEventListener('click', deleteItemsFromWishList);
+    
+
+    
+
+
+
+
 
 
 /*TODO (X - means task done)
-1. create ability to add items to the wishlist - X
-- 0.1: get input & the inputs value on user input - X
-- 0.2: create a document fragment thats identical to - X
-the item in list example(below) - X
-- 0.3: create a function that creates unique user ID's - X
-- 0.4: append the document frag of the item into the DOM - X
+-----
+Current task / problem : 
 
-2. create ability to delete items create in wishlist
+-----
+1. create ability to add items to the wishlist - X
+
+2. create ability to delete items create in wishlist X
 
 3. create ability to search for items in your wishlist
+- 3.1 : 
 -----
 -----
 OPTIONAL EXTRA THINGS
@@ -97,7 +123,7 @@ OPTIONAL EXTRA THINGS
 - https://www.w3schools.com/jsref/prop_html_iscontenteditable.asp
 
 5. save the items saved on the wish list w/ local storage / cookies
-
+- https://web.dev/storage-for-the-web/
 6.sort drop down that lets you sort by alphabetically & other ways
 
 7. reorder items by dragging them w/ the mouse
