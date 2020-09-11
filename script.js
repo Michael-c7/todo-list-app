@@ -35,7 +35,7 @@ function addItemToWishList() {
     let itemFragment = new DocumentFragment();
     
     /*item container */
-    let itemContainer = document.createElement('div');
+    let itemContainer = document.createElement('li');
     itemContainer.classList.add('item-container');
     itemContainer.id = arguments[2];
     // add item to itemFragment
@@ -147,6 +147,8 @@ function searchWishList() {
 -----
 Current task / problem : 
 
+get the filter of the items working
+- solution : https://www.w3schools.com/howto/howto_js_filter_lists.asp
 -----
 1. create ability to add items to the wishlist - X
 
@@ -172,8 +174,6 @@ OPTIONAL EXTRA THINGS
 - https://web.dev/storage-for-the-web/
 6.sort drop down that lets you sort by alphabetically & other ways
 
-7. reorder items by dragging them w/ the mouse
-
-8. ✔️ item deleted X --> at the top of the screen
+7. ✔️ item deleted X --> at the top of the screen
       when an item is successfully deleted
 */
