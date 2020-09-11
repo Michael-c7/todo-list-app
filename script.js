@@ -2,7 +2,8 @@
 let addItemInput = document.querySelector('.add-item__input');
 let addItemButton = document.querySelector('.add-item__button');
 let items = document.querySelector('.items');
-
+let itemNames = Array.from(document.querySelectorAll('.item-name'));
+let searchListInput = document.querySelector('.search-list');
 
 /*create unique ID */
 function createUniqueID(lengthOfUniqueID = 10) {
@@ -85,6 +86,46 @@ function deleteItemsFromWishList(event) {
 
 
 
+
+function searchWishList() {
+    let inputValue = searchListInput.value;
+    // console.log(inputValue)
+
+    /*items text*/
+    let listOfItemText = itemNames.map((item) => {
+       return item.textContent;
+    }, []);
+
+    /*items */
+    let listOfItems = itemNames.map((item) => {
+        return item.parentElement;
+     }, []);
+    //  console.log(listOfItems)
+    // console.log(listOfItemText)
+
+    // filter item text
+    let filterInput = listOfItemText.filter((item) => {
+        
+        for(let i = 0; i < inputValue.length; i+=1) {
+            let itemLetter = item.substr(i, 1);
+
+            let findItemCharacter = inputValue.indexOf(item.substr(0, 1));
+
+            if(findItemCharacter !== -1) {
+                // display the item-container 
+                console.log(itemLetter)
+              
+            } 
+
+        }
+        // console.log(item.substr(0,1));
+    });
+    // search text --> itemLetter
+
+
+}
+// searchWishList();
+
    
 /*Event Listeners */
     /*add items*/
@@ -96,10 +137,9 @@ function deleteItemsFromWishList(event) {
     items.addEventListener('click', deleteItemsFromWishList);
     
 
-    
-
-
-
+    /*Search wishList*/
+    searchListInput.addEventListener('keyup', searchWishList);
+        
 
 
 
@@ -113,7 +153,13 @@ Current task / problem :
 2. create ability to delete items create in wishlist X
 
 3. create ability to search for items in your wishlist
-- 3.1 : 
+- 3.1 : get all the item names X 
+- 3.2 : create a function to search though them X
+- 3.3 : displaying items that match the search,
+        hiding the items that don't.
+- 3.4 : update the list each time you type in the search this list.
+
+-----
 -----
 -----
 OPTIONAL EXTRA THINGS
@@ -130,15 +176,4 @@ OPTIONAL EXTRA THINGS
 
 8. ✔️ item deleted X --> at the top of the screen
       when an item is successfully deleted
-*/
-
-
-/* *Item in list example*
-
-<div class="item-container" id="item-abD342aZx">
-    <span class="item-name">item name</span>
-    <button class="item-delete-btn">&times;</button>
-</div>
-    <hr>
-
 */
