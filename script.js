@@ -121,16 +121,19 @@ function searchWishlist() {
     // console.log(filter)
     let itemsAll = Array.from(document.querySelectorAll('.item-container'));
     let itemsAllText = itemsAll;
-    
+    console.log();
 
     for(let i = 0; i < itemsAll.length; i+=1)  {
+        let hr = itemsAll[i].nextElementSibling;
         let txtValue = itemNames[i].textContent
         || itemNames[i].innerText;
 
         if(txtValue.toLowerCase().indexOf(filter) > -1) {
-            itemsAll[i].style.display = '';
+            itemsAll[i].style.display = "";
+            hr.style.display = "";
         } else {
-            itemsAll[i].style.display = 'none';
+            itemsAll[i].style.display = "none";
+            hr.style.display = "none";
             
         }
     }
