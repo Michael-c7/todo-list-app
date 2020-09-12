@@ -5,6 +5,10 @@ let items = document.querySelector('.items');
 let itemNames = Array.from(document.querySelectorAll('.item-name'));
 let searchListInput = document.querySelector('.search-list');
 
+
+
+
+
 /*create unique ID */
 function createUniqueID(lengthOfUniqueID = 10) {
     let uniqueID = '';
@@ -14,7 +18,6 @@ function createUniqueID(lengthOfUniqueID = 10) {
     for(let i = 0; i < lengthOfUniqueID; i+=1) {
         uniqueID += characters.charAt(Math.round(Math.random()  * characters.length));
     }
-
     return uniqueID;
 }
 
@@ -25,11 +28,9 @@ function createUniqueID(lengthOfUniqueID = 10) {
 /*add the item to the wish list */
 function addItemToWishList() {
     // arguments[2] is the uniqueID
- 
 
     /* wishlist input value*/
     let addItemInputValue = addItemInput.value;
-    // console.log(addItemInputValue);
 
 /*Document fragment*/
     let itemFragment = new DocumentFragment();
@@ -40,7 +41,6 @@ function addItemToWishList() {
     itemContainer.id = arguments[2];
     // add item to itemFragment
     itemFragment.appendChild(itemContainer);
-
 
     /*item name*/
     let itemName = document.createElement('span');
@@ -59,9 +59,8 @@ function addItemToWishList() {
     let itemContainerHr = document.createElement('hr');
     itemContainerHr.classList.add('item-container-hr');
    
-    itemFragment.appendChild(itemContainerHr)
-
-
+    itemFragment.appendChild(itemContainerHr);  
+    
 /*append item fragment into the DOM on click */
     addItemButton.onclick = function() {
         items.appendChild(itemFragment);
@@ -87,44 +86,14 @@ function deleteItemsFromWishList(event) {
 
 
 
-// function searchWishList() {
-//     let inputValue = searchListInput.value;
-
-//     let listOfItemText = itemNames.map((item) => {
-//        return item.textContent;
-//     }, []);
-
-//     let listOfItems = itemNames.map((item) => {
-//         return item.parentElement;
-//      }, []);
-
-//     let filterInput = listOfItemText.filter((item) => {
-        
-//         for(let i = 0; i < inputValue.length; i+=1) {
-//             let itemLetter = item.substr(i, 1);
-
-//             let findItemCharacter = inputValue.indexOf(item.substr(0, 1));
-
-//             if(findItemCharacter !== -1) {
-//                 // display the item-container 
-//                 console.log(itemLetter)
-//             } 
-//         }
-//     });
-// }
-
-// searchWishList();
-
-
 function searchWishlist() {
     let filter = searchListInput.value.toLowerCase();
-    // console.log(filter)
     let itemsAll = Array.from(document.querySelectorAll('.item-container'));
     let itemsAllText = itemsAll;
-    console.log();
 
     for(let i = 0; i < itemsAll.length; i+=1)  {
         let hr = itemsAll[i].nextElementSibling;
+
         let txtValue = itemNames[i].textContent
         || itemNames[i].innerText;
 
@@ -134,13 +103,14 @@ function searchWishlist() {
         } else {
             itemsAll[i].style.display = "none";
             hr.style.display = "none";
-            
         }
-    }
-    
+    } 
 }
 
-   
+
+
+
+
 /*Event Listeners */
     /*add items*/
     addItemInput.addEventListener('keyup', function(event){
@@ -153,7 +123,8 @@ function searchWishlist() {
 
     /*Search wishList*/
     searchListInput.addEventListener('keyup', searchWishlist);
-        
+
+
 
 
 
@@ -167,17 +138,18 @@ Current task / problem :
 2. create ability to delete items create in wishlist X
 
 3. create ability to search for items in your wishlist X
-
 -----
 -----
 -----
 OPTIONAL EXTRA THINGS
 
-4. save the items saved on the wish list w/ local storage / cookies
+4. save the items saved on the wish list w/ local storage
 - https://web.dev/storage-for-the-web/
+- https://developer.mozilla.org/en-US/docs/Web/API/Storage
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- STEPS -
+4.1 : add item to local storage
+(uniqueID === keyName, textContent === keyValue)
 
-5. make all the header text & text of added items editable
-- https://www.w3schools.com/tags/att_global_contenteditable.asp
-- https://www.w3schools.com/jsref/prop_html_iscontenteditable.asp
-
+4.2 remove item from local storage
 */

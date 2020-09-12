@@ -37,7 +37,7 @@ html {
 }
 
 
-/* start of wish list*/
+/*Start of wish list*/
 .wish-list-h1 {
     letter-spacing: 5px;
     background-color:black;
@@ -93,9 +93,11 @@ html {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
+
 .add-item__button:hover {
     cursor:pointer;
 }
+
 .add-item__button:active {
     background-color:var(--blue-100);
 }
@@ -122,12 +124,6 @@ html {
     margin:0 auto;
     padding:1rem 0;
 }
-
-/* hr:first-of-type {
-    margin-top:1rem;
-} */
-
-
 
 .item-container:hover {
     background-color:rgba(10, 10, 10, 0.085);
